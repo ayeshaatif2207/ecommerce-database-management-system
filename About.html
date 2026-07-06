@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stupify — About</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="left-nav">
+        <div class="logo">Stupify <span>DB</span></div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="records.html">Records</a></li>
+            {% if logged_in %}
+            <li><a href="add.html">Add Product</a></li>
+            {% endif %}
+            <li><a href="ReadMe.html" class="active">About</a></li>
+        </ul>
+    </div>
+    <div style="display: flex; align-items: center; gap: 16px;">
+        {% if logged_in %}
+        <span class="user-badge">{{ role|upper }} — {{ username }}</span>
+        {% endif %}
+        <div class="dropdown">
+            <button class="dropbtn">Menu ▾</button>
+            <div class="dropdown-content">
+                <a href="home.html">Home</a>
+                <a href="records.html">Records</a>
+                {% if logged_in %}
+                <a href="add.html">Add Product</a>
+                {% endif %}
+                <a href="ReadMe.html">About</a>
+                <hr style="border: none; border-top: 1px solid var(--border); margin: 6px 0;">
+                <a href="/logout" style="color: var(--red);">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== LAYOUT ===== -->
+<div class="readme-layout">
+
+    <!-- Sidebar TOC -->
+    <aside class="readme-sidebar">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#schema">Database Schema</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#tech">Tech Stack</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main content -->
+    <main class="readme-content">
+
+        <h2 id="about">About Stupify</h2>
+        <p>
+            <strong style="color:var(--text)">Stupify</strong> is a database management interface designed for e-commerce store operations. Built as a simplified Shopify-style database system, Stupify enables store managers and staff to efficiently manage products, customers, orders, and inventory through an intuitive web interface connected to a robust MySQL relational database.
+        </p>
+        <p>
+            The platform demonstrates enterprise-grade database design with role-based access control, allowing different user types (Admin, Staff, Analyst) to interact with data according to their responsibilities. All transactions are managed through a Python Flask backend that connects to a normalized MySQL database adhering to third normal form (3NF) principles.
+        </p>
+
+        <h2 id="team">Team</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="name">Noor</div>
+                <div class="role">Group 3</div>
+            </div>
+            <div class="team-card">
+                <div class="name">Zainab</div>
+                <div class="role">Group 3</div>
+            </div>
+            <div class="team-card">
+                <div class="name">Zoha</div>
+                <div class="role">Group 3</div>
+            </div>
+            <div class="team-card">
+                <div class="name">Ayesha</div>
+                <div class="role">Group 3</div>
+            </div>
+        </div>
+
+        <h2 id="schema">Database Schema</h2>
+        <p>The database consists of 9 tables modelling a complete Shopify-style e-commerce system:</p>
+        <ul>
+            <li><code>CUSTOMER</code> — customer profiles (name, phone, email)</li>
+            <li><code>ADDRESS</code> — customer shipping and billing addresses</li>
+            <li><code>POSTALCODE</code> — city and country lookup by postal code</li>
+            <li><code>PRODUCT</code> — products with pricing, stock levels, and category associations</li>
+            <li><code>CATEGORY</code> — product categories and classifications</li>
+            <li><code>CART</code> &amp; <code>CART ITEM</code> — shopping cart sessions and line items</li>
+            <li><code>ORDER</code> &amp; <code>ORDER ITEM</code> — placed orders and associated line items</li>
+            <li><code>PAYMENT</code> — payment records linked to orders</li>
+            <li><code>SHIPPING METHOD</code> — available shipping options and costs</li>
+            <li><code>REVIEW</code> — customer product reviews and ratings</li>
+        </ul>
+
+        <h2 id="features">Features</h2>
+        <ul>
+            <li><strong>Role-Based Access Control</strong> — Three distinct user roles (Admin, Manager, Analyst) with granular MySQL-enforced privileges</li>
+            <li><strong>Product Management</strong> — View, search, filter, and add products with real-time inventory tracking</li>
+            <li><strong>Normalized Database Design</strong> — All tables conform to Third Normal Form (3NF) eliminating data redundancy</li>
+            <li><strong>Transaction Support</strong> — ACID-compliant transactions ensuring data consistency across operations</li>
+            <li><strong>Clean Web Interface</strong> — Dark-themed, responsive design built with HTML, CSS, and Flask</li>
+            <li><strong>Real-Time Queries</strong> — Live data retrieval from MySQL with JOINs and aggregations</li>
+        </ul>
+
+        <h2 id="tech">Tech Stack</h2>
+        <ul>
+            <li><code>HTML5</code> &amp; <code>CSS3</code> — semantic markup and modern styling</li>
+            <li><code>Python 3</code> with <code>Flask</code> — lightweight web framework for server-side routing</li>
+            <li><code>Jinja2</code> — templating engine for dynamic content rendering</li>
+            <li><code>MySQL 8.x</code> — relational database with native user privilege management</li>
+            <li><code>mysql-connector-python</code> — Python MySQL database driver</li>
+        </ul>
+
+    </main>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <span class="logo-sm">Stupify</span>
+    <p>Group 3 &mdash; Noor &middot; Zainab &middot; Zoha &middot; Ayesha &mdash; Designing a Database</p>
+</footer>
+
+</body>
+</html>

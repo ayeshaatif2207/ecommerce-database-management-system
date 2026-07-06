@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stupify — Add Product</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="left-nav">
+        <div class="logo">Stupify <span>DB</span></div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="records.html">Records</a></li>
+            <li><a href="add.html" class="active">Add Product</a></li>
+            <li><a href="about.html">Read Me</a></li>
+        </ul>
+    </div>
+    <div style="display: flex; align-items: center; gap: 16px;">
+        <span class="user-badge">{{ role|upper }} — {{ username }}</span>
+        <div class="dropdown">
+            <button class="dropbtn">Menu ▾</button>
+            <div class="dropdown-content">
+                <a href="home.html">Home</a>
+                <a href="records.html">Records</a>
+                {% if logged_in %}
+                <a href="add.html">Add Product</a>
+                {% endif %}
+                <a href="about.html">About</a>
+                <hr style="border: none; border-top: 1px solid var(--border); margin: 6px 0;">
+                <a href="/logout" style="color: var(--red);">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== PAGE HEADER ===== -->
+<div class="page-header">
+    <h1>Add New Product</h1>
+    <p>Fill in the details below to insert a new record into the database.</p>
+</div>
+
+<!-- ===== CONTENT ===== -->
+<div class="container">
+
+    {% if message %}
+    <div class="alert alert-success">
+        &#10003; &nbsp;{{ message }}
+    </div>
+    {% endif %}
+
+    {% if error %}
+    <div class="alert alert-error">
+        &#9888; &nbsp;{{ error }}
+    </div>
+    {% endif %}
+
+    <div class="form-card">
+        <form method="POST" action="/add.html">
+            <div class="form-grid">
+
+                <div class="form-group full">
+                    <label for="name">Product Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="e.g. Classic White T-Shirt"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Price (USD)</label>
+                    <input
+                        type="number"
+                        id="price"
+                        name="price"
+                        step="0.01"
+                        min="0"
+                        placeholder="0.00"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="stocks">Stock Quantity</label>
+                    <input
+                        type="number"
+                        id="stocks"
+                        name="stocks"
+                        min="0"
+                        placeholder="0"
+                        required
+                    >
+                </div>
+
+                <div class="form-group full">
+                    <label for="category">Category ID</label>
+                    <input
+                        type="number"
+                        id="category"
+                        name="category"
+                        min="1"
+                        placeholder="e.g. 3"
+                        required
+                    >
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">Add Product &rarr;</button>
+                <a href="records.html" class="btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <span class="logo-sm">Stupify</span>
+    <p>Group 3 &mdash; Noor &middot; Zainab &middot; Zoha &middot; Ayesha &mdash; Designing a Database</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stupify — Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="left-nav">
+        <div class="logo">Stupify <span>DB</span></div>
+        <ul class="nav-links">
+            <li><a href="home.html" class="active">Home</a></li>
+            <li><a href="records.html">Records</a></li>
+            {% if logged_in %}
+            <li><a href="add.html">Add Product</a></li>
+            {% endif %}
+            <li><a href="about.html">Read Me</a></li>
+        </ul>
+    </div>
+    <div style="display: flex; align-items: center; gap: 16px;">
+        <span class="user-badge">{{ role|upper }} — {{ username }}</span>
+        <div class="dropdown">
+            <button class="dropbtn">Menu ▾</button>
+            <div class="dropdown-content">
+                <a href="home.html">Home</a>
+                <a href="records.html">Records</a>
+                {% if logged_in %}
+                <a href="add.html">Add Product</a>
+                {% endif %}
+                <a href="about.html">About</a>
+                <hr style="border: none; border-top: 1px solid var(--border); margin: 6px 0;">
+                <a href="/logout" style="color: var(--red);">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <div class="hero-badge">Live Database Interface</div>
+    <h1>Access your store<br><em>with clarity.</em></h1>
+    <p>A database-powered interface for your Shopify store. Browse records,
+       run searches, add products, and manage data — all from one clean dashboard.</p>
+    <div class="hero-actions">
+        <a href="records.html" class="btn-primary">
+            View Records &rarr;
+        </a>
+        <a href="about.html" class="btn-secondary">
+            Learn More
+        </a>
+    </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<div class="stats-row">
+    <div class="stat-card">
+        <div class="number">12</div>
+        <div class="label">Database Tables</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">4</div>
+        <div class="label">Functional Pages</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">4</div>
+        <div class="label">Team Members</div>
+    </div>
+</div>
+
+<!-- ===== ABOUT SECTION ===== -->
+<section class="about-section">
+    <div class="about-image-side">
+        <img src="{{ url_for('static', filename='ERD Diagram.png') }}" alt="Entity Relationship Diagram">
+    </div>
+    <div class="about-text-side">
+        <p class="section-label">About This Project</p>
+        <h2>A database built for a Shopify store.</h2>
+        <p>
+            Stupify is a database management interface designed for a simplified Shopify-style
+            e-commerce platform. It connects a structured MySQL backend to a clean HTML/CSS
+            front end via a Flask server.
+        </p>
+        <p>
+            The schema covers everything from customers and orders to payments, shipping,
+            reviews, and product categories — all visible in the ERD to the left.
+        </p>
+        <div class="tech-tags">
+            <span class="tag">HTML &amp; CSS</span>
+            <span class="tag">Python / Flask</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Jinja2</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <span class="logo-sm">Stupify</span>
+    <p>Group 3 &mdash; Noor &middot; Zainab &middot; Zoha &middot; Ayesha &mdash; Designing a Database</p>
+</footer>
+
+</body>
+</html>

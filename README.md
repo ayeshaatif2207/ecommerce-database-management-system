@@ -87,6 +87,12 @@ Me and my team developed this as my university Database Systems project. My team
 
 ## Screenshots
 
+### ERD Diagram
+<img width="706" height="498" alt="image" src="https://github.com/user-attachments/assets/5d5f7613-77a9-448a-b4c1-44117441c1b8" />
+
+### Database Schema:
+<img width="1263" height="549" alt="image" src="https://github.com/user-attachments/assets/e523fdb9-2d64-4892-8ca1-015e077c4e80" />
+
 ### kaggle notebook features:
 <img width="1077" height="330" alt="image" src="https://github.com/user-attachments/assets/e71555d5-78fe-48ac-b429-7511673310b5" />
 
@@ -95,9 +101,6 @@ Me and my team developed this as my university Database Systems project. My team
 
 ### Dashboard:
 <img width="1262" height="552" alt="image" src="https://github.com/user-attachments/assets/ef687e81-0e39-4f5a-a857-fcb336ac1b35" />
-
-### Database Schema:
-<img width="1263" height="549" alt="image" src="https://github.com/user-attachments/assets/e523fdb9-2d64-4892-8ca1-015e077c4e80" />
 
 ### AI Query Interface:
 <img width="1279" height="491" alt="image" src="https://github.com/user-attachments/assets/f2a75e8e-ff70-4ad3-ac85-da46399ca620" />
